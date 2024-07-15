@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .box1 {
+            height: 120vh;
+            width: 43%;
+            border: none;
+            background-color: rgb(255 255 0);
+        }
+
+        .box2 {
+            text-align: center;
+            padding: 38% 20%;
+        }
+
+        h1 {
+            color: black;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 40px;
+        }
+
+        pre {
+            color: rgb(0, 81, 255);
+            font-family: sans-serif;
+            font-size: 16px;
+            font-weight: lighter;
+        }
+
+        .box2 button {
+            background-color: rgb(0, 81, 255);
+            color: rgb(255 255 0);
+            width: 65%;
+            border: 1px solid whitesmoke;
+            padding: 5%;
+            border-radius: 30px;
+            font-size: 18px;
+        }
+
+        .box4 h1 {
+            color: rgb(255 255 0);
+            font-weight: bolder;
+        }
+
+        .createacc{
+            background-color: black;
+            margin-left: 25%;
+            margin-right: 25%;
+            border-radius: 20px;
+        }
+
+        .box3 {
+            height: 120vh;
+            width: 57%;
+        }
+
+        .box3 {
+            background-image: url(https://i.pinimg.com/originals/95/33/ca/9533ca91e306d62a4d5d9eff27169019.png);
+            background-size: cover;
+        }
+
+        .box4 {
+            text-align: center;
+            margin-top: 12%;
+        }
+
+        .box5 img {
+            height: 70px;
+            width: 70px;
+            background: none; 
+        }
+
+        #ximg{
+            background-color: white;
+        }
+
+        .box4 p {
+            color: rgb(0, 0, 0,);
+            font-family: sans-serif;
+        }
+
+        .box4 input {
+            padding: 1.8% 4%;
+            width: 40%;
+        }
+
+        .box4 button {
+            background-color: rgb(255 255 0);
+            color: rgb(0 81 255);
+            width: 35%;
+            border: 1px solid whitesmoke;
+            padding: 3%;
+            border-radius: 30px;
+            font-size: 18px;
+        }
+
+        .parent {
+            display: flex;
+            justify-content: center;
+        }
+        @media (max-width:700px){
+            .parent{
+                flex-direction: column;
+            }
+            .box1,.box3{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="parent">
+        <div class="box1" id="BOX1">
+            <div class="box2">
+                <p>
+                <h1>Welcome Friend</h1>
+                </p>
+                <p>
+                <pre>To keep connected with us please
+login with your personal info.
+            </pre>
+                </p>
+                <button>SIGN IN</button>
+            </div>
+        </div>
+        <div class="box3" id="BOX2">
+            <div class="box4">
+                <p>
+                <div class="createacc"><h1><b>Create Account</b></h1></div>
+                </p>
+                <div class="box5">
+                    <a href="https://www.facebook.com/TheChennaiSuperKings/" target="blank"><img id="img1" src="https://i.pinimg.com/1200x/1b/60/f9/1b60f9d42fd84e31b304d5e7779cccfd.jpg"></a>
+                    <a href="https://x.com/ChennaiIPL?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="main"><img id="ximg" src="https://i.pinimg.com/originals/5f/d0/53/5fd0537ef0cbf9efd48c975209f74a8c.png"></a>
+                    <a href="https://www.instagram.com/chennaiipl/" target="blank"><img src="https://i.pinimg.com/736x/fc/26/50/fc26502254db62ce6b29debec1a56e80.jpg"></a>
+                </div><br>
+                <p>or use your email for registration</p>
+                <form action="https://www.chennaisuperkings.com/" onsubmit="return storeData()">
+                    <p><input id ="name" type="name" placeholder="Name*"></p>
+                    <p><input id="email" type="text" placeholder="Email*"></p>
+                    <p><input id="password" type="password" placeholder="Password*"></p>
+                    <p><input id="cnfpassword" type="password" placeholder="Confirm Password*"></p>
+                    <button>SIGN UP</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        function storeData(){
+            var userName=document.getElementById("name").value;
+            var userNameCheck=/^[a-z A-Z]+$/
+            var userEmail=document.getElementById("email").value;
+            var userEmailCheck=/^[^\s@]+@[^\s@]+.[^\s@]+$/
+            var passWord=document.getElementById("password").value;
+            var cnfPassword=document.getElementById("cnfpassword").value
+            console.log(userName)
+            console.log(userEmail)
+            console.log(passWord)
+            console.log(cnfPassword)
+            if(userName==""){
+                alert("name field is invalid")
+                return false
+            }
+            if(!userName.match(userNameCheck)){
+                alert("name field must contain alphabets")
+                return false
+            }
+            if(userName.length<3){
+                alert("name field is invalid")
+                return false
+            }
+            if(userEmail==""){
+                alert("email field should not be empty")
+                return false
+            }
+            if(!userEmail.match(userEmailCheck)){
+                alert("invalid email")
+                return false
+            }
+            if(passWord==""){
+                alert("password field should not be empty")
+                return false
+            }
+            if(passWord.length<6){
+                alert("password must contain 6 characters")
+                return false
+            }
+            if(passWord!=cnfPassword){
+                alert("password doesn't match")
+                return false
+            }
+            else{
+                return true
+            }
+        }
+    </script>
+</body>
+</html>
